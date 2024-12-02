@@ -1,0 +1,197 @@
+* {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url(Griders.png);
+}
+
+.darkmode {
+  --base-color: #0e1111;
+  --base-variant: #0e1111;
+  --text-color: #ffffff;
+  --secondary-text: #a4a5b8;
+  --post-btn-bg: white;
+  --post-btn-color: black;
+}
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#theme-switch svg {
+  fill: var(--primary-color);
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--base-color);
+  color: var(--text-color);
+  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden; /* Prevent overflow */
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#monthYear {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000000;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr; /* Ensure rows fit within available height */
+  gap: 10px; /* Reduced gap for a tighter fit */
+  flex-grow: 1;
+  padding: 10px; /* Add padding for aesthetics */
+  overflow: auto; /* Allow scrolling if content exceeds height */
+}
+
+.day {
+  background-color: #e9ecef;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  height: 80px; /* Adjust height to fit nicely */
+}
+
+.day:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.day-number {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.emoji-large {
+  font-size: 40px;
+  margin-top: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+.home-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+.home-button i {
+  font-size: 28px;
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 50%; /* Make the icon circular */
+}
+
+.home-button i:hover {
+  background-color: black;
+  color: white;
+  border-radius: 50%; /* Keep it circular on hover */
+}
+
+.emoji-large {
+  font-size: 2em;
+  margin-top: 5px;
+}
+
+.emoji-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 150px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.emoji-wrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

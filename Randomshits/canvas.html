@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Drawing</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+      canvas {
+        border: 1px solid #000;
+      }
+      #submittedDrawing {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Draw on the Canvas</h1>
+    <canvas id="drawingCanvas" width="500" height="500"></canvas>
+    <button id="submitBtn">Submit Drawing</button>
+    <h2>Your Drawing:</h2>
+    <img
+      id="submittedDrawing"
+      src=""
+      alt="Your Drawing"
+      style="display: none"
+    />
+
+    <script>
+      const canvas = document.getElementById("drawingCanvas");
+      const ctx = canvas.getContext("2d");
+      const submitBtn = document.getElementById("submitBtn");
+      const submittedDrawing = document.getElementById("submittedDrawing");
+
+      let drawing = false;
+
+      canvas.addEventListener("mousedown", () => {
+        drawing = true;
+      });
+
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+        ctx.beginPath(); // Start a new path to prevent connecting lines
+      });
+
+      canvas.addEventListener("mousemove", (event) => {
+        if (!drawing) return;
+
+        ctx.lineWidth = 2; // Set the line width
+        ctx.lineCap = "round"; // Set the line cap style
+        ctx.strokeStyle = "black"; // Set the stroke color
+
+        ctx.lineTo(
+          event.clientX - canvas.offsetLeft,
+          event.clientY - canvas.offsetTop
+        );
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(
+          event.clientX - canvas.offsetLeft,
+          event.clientY - canvas.offsetTop
+        );
+      });
+
+      submitBtn.addEventListener("click", () => {
+        submittedDrawing.src = canvas.toDataURL();
+        submittedDrawing.style.display = "block"; // Show the submitted drawing
+      });
+    </script>
+  </body>
+</html>
