@@ -23,10 +23,12 @@
   </head>
   <body>
     <div class="containerbox">
+      <div class="navigation">
+            <a href="../HomePage/HomePage.php">
+              <i class="fa-solid fa-left-long"></i>
+            </a>
+    </div>
       <div class="heading">
-        <a href="../HomePage/HomePage.php">
-        <i class="fa-solid fa-left-long"></i>
-        </a>
         <h1>ABOUT US</h1>
         <p>
           Moodify was developed by students from Quezon City University to
@@ -38,7 +40,7 @@
       </div>
       <div class="container">
         <section class="about">
-          <h2>MOODIFY</h2>
+          <h1>MOODIFY</h1>
           <p>
             MOODIFY is an innovative technology designed to enhance and
             influence emotional states through sensory stimulation, often using
@@ -64,5 +66,7 @@
         </div>
       </footer>
     </div>
+    <script src="../starter.js"></script>
+
   </body>
 </html>

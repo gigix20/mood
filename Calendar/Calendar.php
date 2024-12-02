@@ -34,7 +34,7 @@ $postsJson = json_encode($posts);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moodify - Calendar</title>
-    <link rel="stylesheet" href="Calendar.css">
+    <link rel="stylesheet" href="./Calendar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="icon" type="image/jpg" href="MoodifyClearLogo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,10 +46,12 @@ $postsJson = json_encode($posts);
 </head>
 <body>
     <div class="container">
+    <a href="../HomePage/HomePage.php">
         <button class="home-button">
-            <a href="../HomePage/HomePage.php"><i class="fa-solid fa-left-long"></i></a>
+            <i class="fa-solid fa-left-long"></i>
+        
         </button>
-
+        </a>
         <div id="controls">
             <button onclick="changeMonth(-1)">Previous</button>
             <span id="monthYear"></span>
@@ -58,6 +60,7 @@ $postsJson = json_encode($posts);
 
         <div id="calendar"></div>
     </div>
+    <script src="./starter.js"></script>
 
     <script>
         let currentDate = new Date();
@@ -126,6 +129,6 @@ $postsJson = json_encode($posts);
 
         displayCalendar();
     </script>
-    <script src="./starter.js"></script>
+    
 </body>
 </html>
